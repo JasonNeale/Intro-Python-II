@@ -9,6 +9,12 @@ class Player:
         self.name = name
         self.current_room = current_room
         self.inventory = []
+        
+    def grab_item(self, item):
+        self.inventory.append(item)
+
+    def drop_item(self, item):
+        self.inventory.remove(item)
 
     def move(self, direction):
         new_room = self.current_room
@@ -31,6 +37,6 @@ class Player:
             clear()
             self.current_room = new_room
         else:
-            clear = lambda: os.system('cls')
-            clear()
+            # clear = lambda: os.system('cls')
+            # clear()
             print(f"{kolors.FAIL}\n############## WARNING ##############\n[{kolors.ENDC} {kolors.WARNING}You stepped on a Lego! Try again.{kolors.ENDC} {kolors.FAIL}]\n############## WARNING ##############{kolors.ENDC}\n\n")
